@@ -6,11 +6,12 @@ import { EventEmitter } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MessagesService {
   messagesChangedEvent = new EventEmitter<Message[]>();
-  /*constructor() { 
+  constructor() { 
     this.messages = MOCKMESSAGES;
-  }*/
+  }
 
   private messages: Message[] = [];
 
@@ -26,11 +27,5 @@ export class MessagesService {
     this.messages.push(message);
     this.messagesChangedEvent.emit(this.messages.slice());
   }
-
-  /*addMessages(message: Message[]){
-    this.messages.push(...messages);
-    this.addMessage.emit(this.messages.slice());
-  }*/
-
 
 }
