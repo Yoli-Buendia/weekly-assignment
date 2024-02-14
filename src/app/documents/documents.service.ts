@@ -7,7 +7,7 @@ import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
   providedIn: 'root'
 })
 export class DocumentsService {
-  documentSelectedEvent = new EventEmitter<Document>()
+  documentSelectedEvent = new EventEmitter<Document>();
   constructor() { 
     this.documents = MOCKDOCUMENTS;
   }
@@ -18,8 +18,25 @@ export class DocumentsService {
     return this.documents.slice();
   }
 
-  getDocument(id: string): Document {
+  /*getDocument(id: string): Document {
+    for (const document of this.documents) {
+      if (document.id === id) {
+        return document;
+      }
+    }
+    return null;
+   }*/
+   getDocument(id: string): Document {
+    this.documents.forEach((document)=>{
+      if (document.id === id) {
+        return document;
+      }
+    })
+    return null;
+    console.log("get doc running");
+   }
+  /*getDocument(id: string): Document {
     return this.documents.find((c) => c.id === id);
-  }
+  }*/
 
 }
