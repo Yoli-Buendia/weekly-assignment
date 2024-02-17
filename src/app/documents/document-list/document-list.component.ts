@@ -11,7 +11,7 @@ export class DocumentListComponent {
 
   documents: Document[] =[];
 
-  onSelected(document: Document){
+  onSelectedDocument(document: Document){
     this.documentService.documentSelectedEvent.emit(document);
   }
 
